@@ -24,7 +24,7 @@ public class AutoCacheProperties {
     private String password;
 
     /**
-     * 命令超时时间
+     * 命令超时时间，单位秒
      */
     private long timeout = 5;
 

@@ -36,6 +36,13 @@
             <groupId>io.lettuce</groupId>
             <artifactId>lettuce-core</artifactId>
         </dependency>
+
+<!--        Google Guava 开源工具类库-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>32.1.3-jre</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
