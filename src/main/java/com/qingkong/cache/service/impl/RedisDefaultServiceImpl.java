@@ -20,11 +20,20 @@ public class RedisDefaultServiceImpl implements IRedisValueService {
     @Override
     public Object getVal(String key, String field, Class<?> returnClass, Type returnType) {
         String val = null;
-        if (Strings.isNullOrEmpty(key)) {
-            log.info("开始获取缓存数据...");
-            RedisClusterUtil.get(key);
+        try {
+            if (Strings.isNullOrEmpty(key)) {
+                log.info("开始获取缓存数据...");
+                val = RedisClusterUtil.get(key);
+            } else {
+                // field中有值说明是hash TODO 待实现
+    //            val = RedisClusterUtil.hashGet(key, val);
+            }
+        } catch (Exception e) {
+            log.error("获取缓存数据失败", e);
+            return null;
         }
-        return null;
+        log.info("从缓存中获取到的数据为[{}]", val);
+        return val;
     }
 
     @Override
